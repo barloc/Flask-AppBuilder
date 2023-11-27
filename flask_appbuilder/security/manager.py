@@ -942,6 +942,8 @@ class BaseSecurityManager(AbstractSecurityManager):
         )
         log.debug("LDAP search returned: {0}".format(raw_search_result))
 
+        log.debug("Value for nested groups is {0}".format(self.auth_ldap_use_nested_groups_for_roles))
+
         # Remove any search referrals from results
         search_result = [
             (dn, attrs)
