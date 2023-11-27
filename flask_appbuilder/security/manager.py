@@ -966,7 +966,9 @@ class BaseSecurityManager(AbstractSecurityManager):
         except (IndexError, NameError):
             return None, None
 
-                # get nested groups for user
+        log.debug("User's dn: {0}".format(user_dn))
+
+        # get nested groups for user
         if self.auth_ldap_use_nested_groups_for_roles:
             # filter for microsoft active directory only
             nested_groups_filter_str = (
